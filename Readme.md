@@ -1,9 +1,7 @@
-<h1>Sistema de Cadastro de Jogos</h1>
+<h1>Sistema de CadastLocação de Jogos de Tabueiro</h1>
 
 > Status do projeto: Em desenvolvimento
 
-Para rodar este projeto na sua máquina, por favor digite:
+Curso: Lógica de Programação - Praticando com desafios
 
-```
-node app.js
-```
+Fonte: Alura
