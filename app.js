@@ -1,9 +1,5 @@
 let jogosAlugados = 0;
 
-function contarJogosAlugados() {
-    console.log(`Total de jogos alugados: ${jogosAlugados}`);
-}
-
 function alterarStatus(id) {
     let gameSelect = document.getElementById(`game-${id}`);
     let imagem = gameSelect.querySelector('.dashboard__item__img');
@@ -11,11 +7,11 @@ function alterarStatus(id) {
     let botao = gameSelect.querySelector('.dashboard__item__button');
 
     if (imagem.classList.contains('dashboard__item__img--rented')) {
-        // Adicionando confirmação de devolução do jogo
+        // Adicionando confirmação antes da devolução do jogo
         if (confirm(`Você tem certeza que deseja devolver o jogo ${name.textContent}?`)) {
             imagem.classList.remove('dashboard__item__img--rented');
-            botao.textContent = 'Alugar';
             botao.classList.remove('dashboard__item__button--return');
+            botao.textContent = 'Alugar';            
             jogosAlugados--;
         }        
     } else {
@@ -27,12 +23,18 @@ function alterarStatus(id) {
     contarJogosAlugados();
 }
 
-//Contagem de jogos alugados
+function contarJogosAlugados() {
+    console.log(`Total de jogos alugados: ${jogosAlugados}`);
+//    confirm(`Total de jogos alugados: ${jogosAlugados}`);
+}
+
+//Contagem de jogos alugados. A contagem considera que os jogos já começam alugados.
 document.addEventListener('DOMContentLoaded', function() {
     jogosAlugados = document.querySelectorAll('.dashboard__item__img--rented').length;
     contarJogosAlugados();
 });
 
+alert(`Total de jogos alugados: ${jogosAlugados}`);
 
 /* A classe do html que indica se o jogo está alugado é: "dashboard__item__img--rented"
    O jogo que não tem essa classe, indica que está disponível.
